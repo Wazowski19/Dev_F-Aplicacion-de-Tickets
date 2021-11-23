@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Tickets</title>
+    <link rel="stylesheet" href="styles/estilo.css" />
+    <link rel="stylesheet" href="styles/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="styles/icons/fontawesome-free-5.15.4-web/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!--Sidebar-->
+
+      <div class="bg-white" id="sidebar-wrapper">
+        <div
+          class="
+            sidebar-heading
+            text-center
+            py-4
+            primary-text
+            fs-4
+            fw-bold
+            text-uppercase
+          "
+        >
+          <i class="fa fa-film" aria-hidden="true"></i> Cine-Play
+        </div>
+
+        <div class="list-group list-group-flush my-3">
+          <a
+            href="#"
+            class="
+              list-group-item list-group-item-action
+              bg-transparent
+              second-text
+              active
+            "
+          >
+            <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+          </a>
+          <a
+            href=""
+            class="
+              list-group-item list-group-item-action
+              bg-transparent
+              second-text
+              fw-bold
+            "
+          >
+            Lista de tickets
+          </a>
+          <a
+            href=""
+            class="
+              list-group-item list-group-item-action
+              bg-transparent
+              second-text
+              fw-bold
+            "
+          >
+            Lista de películas
+          </a>
+          <a
+            href=""
+            class="
+              list-group-item list-group-item-action
+              bg-transparent
+              second-text
+              fw-bold
+            "
+          >
+            Lista de asientos por sala
+          </a>
+          <a
+            href=""
+            class="
+              list-group-item list-group-item-action
+              bg-transparent
+              second-text
+              fw-bold
+            "
+          >
+            Sala VIP
+          </a>
+          <a
+            href=""
+            class="
+              list-group-item list-group-item-action
+              bg-transparent
+              second-text
+              fw-bold
+            "
+          >
+            Próximos estrenos
+          </a>
+          <a
+            href=""
+            class="
+              list-group-item list-group-item-action
+              bg-transparent
+              text-danger
+              fw-bold
+            "
+          >
+            Logout
+          </a>
+        </div>
+      </div>
+
+      <!--Navbar-->
+      <div id="page-content-wrapper">
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4"
+        >
+          <div class="d-flex align-items-center">
+            <i class="fas fa-ticket-alt primary-text fs-4 me-3" id="menu-toggle"></i>
+            <h2 class="fs-2 m-0">Tickets</h2>
+          </div>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle second-text fw-bold"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-user-circle" aria-hidden="true"></i> Username
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="text-center">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Añadir
+            </button>
+        </div>
+
+        <div class="modal fade" id="exampleModal" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header" style="padding: 35px 50px">
+                <i class="fa fa-film mx-2 " aria-hidden="true"></i> 
+                <h4><span class="glyphicon glyphicon-lock "></span>CINE-PLAY</h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body" style="padding: 40px 50px">
+                <form
+                  action=""
+                  id="ingreso"
+                  class="
+                    d-flex
+                    flex-column
+                    align-items-start align-content-start
+                  "
+                >
+                  <label for="title" class="mx-3"
+                    ><i class="fa fa-film" aria-hidden="true"></i>
+                    Película:</label
+                  >
+                  <select name="title" id="title" class="form-select">
+                    <option value="">Elija Opcion</option></select
+                  ><br />
+
+                  <label for="place" class="mx-3"
+                    ><i class="fa fa-ticket-alt" aria-hidden="true"></i>
+                    Asiento</label
+                  >
+                  <input
+                    type="text"
+                    name="place"
+                    id="place"
+                    required="true"
+                    placeholder="Escriba el asiento"
+                  /><br />
+
+                  <input
+                    type="submit"
+                    id="btnAdicion"
+                    value="Añadir"
+                    onclick="addTicket(event)"
+                    data-bs-dismiss="modal"
+                  /><br /><br /><br />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="d-flex flex-row justify-content-around mb-3">
+            <div class="align-self-center">
+              <h3 class="fs-4 align-middle">Lista de tickets</h3>
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+              <input type="text" name="busqueda" id="busqueda"/>
+              <input
+                type="submit"
+                id="btnAdicion"
+                value="Buscar"
+                onclick="buscarTicket(event)"
+              />
+            </div>
+          </div>
+
+          <div class="col" id="contenedorTabla">
+            <table
+              class="table bg-white rounded shadow-sm table-hover"
+              id="tabla"
+            ></table>
+          </div>
+          <div>
+            <h4 id="message"></h4>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <script src="styles/js/bootstrap.min.js"></script>
+    <script src="styles/icons/fontawesome-free-5.15.4-web/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/pelicula1.js"></script>
+    <script src="scripts/pelicula2.js"></script>
+    <script src="scripts/pelicula3.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
